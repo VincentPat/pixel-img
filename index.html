@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Img Demo</title>
+    <script type="text/javascript" src="pixel-img.js"></script>
+    <style>
+    input[type='range'] {
+        margin-top: -2px;
+        margin-right: 6px;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+<body>
+    <h2>Pixel Img</h2>
+    <h4>原图:</h4>
+    <img src="example.png" alt="原始图片" id="initial">
+    <h4>马赛克比例：<input type="range" min="1" max="10" id="range" value="1"><span id="range-value"></span></h4>
+    <img src="" alt="转换图片" id="result">
+    <script>
+    window.onload = function() {
+        var range = document.getElementById("range");
+        range.addEventListener("change", changeImg, false);
+        changeImg();
+    }
+
+    function changeImg() {
+        var img = document.getElementById("initial");
+        var ratio = document.getElementById("range").value;
+        document.getElementById("range-value").innerHTML = ratio;
+        var src = toPixelImg(img, ratio);
+        var result = document.getElementById("result");
+        result.src = src;
+    }
+    </script>
+</body>
+</html>
