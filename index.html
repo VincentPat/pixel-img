@@ -15,13 +15,14 @@
 <body>
     <h2>Pixel Img</h2>
     <h4>原图:</h4>
-    <img src="example.png" alt="原始图片" id="initial">
+    <img src="head.png" alt="原始图片" id="initial">
     <h4>马赛克比例：<input type="range" min="1" max="10" id="range" value="1"><span id="range-value"></span></h4>
     <img src="" alt="转换图片" id="result">
     <script>
     window.onload = function() {
         var range = document.getElementById("range");
         range.addEventListener("change", changeImg, false);
+        range.addEventListener("input", changeImg, false);
         changeImg();
     }
 
